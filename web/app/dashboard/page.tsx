@@ -1,5 +1,6 @@
+'use client';
 import React, { useEffect, useState } from 'react';
-import { supabase } from '../../src/lib/supabaseClient';
+import { getSupabase } from '../../src/lib/supabaseClient';
 
 export default function DashboardPage() {
   const [holdings, setHoldings] = useState<any[]>([]);
@@ -7,6 +8,8 @@ export default function DashboardPage() {
 
   useEffect(() => {
     async function load() {
+      const supabase = getSupabase();
+      if (!supabase) return;
       const { data: h } = await supabase.from('holdings').select('*,assets(*)');
       const { data: a } = await supabase.from('alerts').select('*').order('created_at', { ascending: false }).limit(10);
       setHoldings(h || []);
