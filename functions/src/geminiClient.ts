@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 const GEMINI_URL = 'https://api.gemini.example/v2.5/flash'; // replace with real endpoint
 
 export async function callGeminiFlash(apiKey: string, content: string | Buffer) {
