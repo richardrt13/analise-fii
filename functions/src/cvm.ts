@@ -1,5 +1,3 @@
-import fetch from 'node-fetch';
-
 export async function fetchCvmFundsList(cvmApiUrl: string) {
   // This is a small helper to fetch from a configurable CVM endpoint.
   // The exact endpoint and parsing should be adapted to the CVM dataset you want to consume.

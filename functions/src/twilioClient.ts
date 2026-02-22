@@ -1,5 +1,4 @@
 // Minimal Twilio helper — uses REST API directly to avoid adding twilio SDK by default.
-import fetch from 'node-fetch';
 
 export async function sendSms(accountSid: string, authToken: string, from: string, to: string, body: string) {
   const url = `https://api.twilio.com/2010-04-01/Accounts/${accountSid}/Messages.json`;
